@@ -31,6 +31,8 @@ export const Desc = styled.p`
 
 export const Body = styled.div`
   display: flex;
+  justify-content: center;
+  gap: 32px;
   padding: 100px 0;
 
   @media only screen and (max-width: 1000px) {

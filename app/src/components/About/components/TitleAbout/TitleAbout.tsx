@@ -3,7 +3,7 @@ import { Wrapper, Title, ButtonResume} from "./StylesTitleAbout";
 
 function TitleAbout() {
   const handleOpen = () => {
-    window.open("/my-portfolio/Huynh-Anh-Kiet-CV.pdf", "_blank");
+    window.open("/my-portfolio/HUYNH-ANH-KIET_CV_ENGLISH.pdf", "_blank", "noopener,noreferrer");
   };
 
   return (

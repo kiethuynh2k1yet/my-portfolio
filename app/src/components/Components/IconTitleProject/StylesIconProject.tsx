@@ -19,7 +19,8 @@ export const Title = styled.h1`
 
 export const Body = styled.div`
     display: flex;
-    gap: 10px
+    flex-wrap: wrap;
+    gap: 10px;
 `
 
 export const Link = styled.a`

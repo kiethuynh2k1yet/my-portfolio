@@ -11,7 +11,7 @@ function Project() {
             <Desc>Selected Projects</Desc>
             {projects.map((item, index) => (
               <Body key={index}>
-                <ImgProject image={item.project[0].image} />
+                {item.project[0].image && <ImgProject image={item.project[0].image} />}
                 <TitleProject projects={item.project} />
               </Body>
             ))}

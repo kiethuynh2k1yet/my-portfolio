@@ -1,44 +1,68 @@
 "use client"
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 import {Body, Title, Wrapper, ButtonDemo, ButtonView, Link} from "./StylesIconProject";
 import { ActivityIcon, GitIcon } from "../../Components/Icons/Icon";
+import type { ProjectTechnology } from "../../../Data/DataProject";
 
 type ServiceProps = {
-    icons: StaticImageData[];
+    icons: ProjectTechnology[];
     title: string, 
-    linkDemo: string;
-    linkGit: string;
+    linkDemo?: string;
+    linkGit?: string;
+    linkFrontend?: string;
+    linkBackend?: string;
 }
 
-function IconProject({icons, title, linkDemo, linkGit}: ServiceProps){
+function IconProject({icons, title, linkDemo, linkGit, linkFrontend, linkBackend}: ServiceProps){
     return(
         <Wrapper>
             <Title>{title}</Title>
             <Body>
-                {icons.map((icon, index) => (
+                {icons.map((icon) => (
                     <Image
-                        key={index}
-                        src={icon}
-                        alt={`${title}-${index}`}
+                        key={icon.name}
+                        src={icon.image}
+                        alt={icon.name}
+                        title={icon.name}
                         width={35}
                         height={35}
                     />
                 ))}
             </Body>
             <Body>
-                <Link href={linkDemo} target="_blank">
-                    <ButtonDemo>
-                        <ActivityIcon/>
-                        Live demo
-                    </ButtonDemo>
-                </Link>
-                <Link href={linkGit} target="_blank">
-                    <ButtonView>
-                        <GitIcon/>
-                        GitHub
-                    </ButtonView>
-                </Link>
+                {linkDemo && (
+                    <Link href={linkDemo} target="_blank" rel="noopener noreferrer">
+                        <ButtonDemo>
+                            <ActivityIcon/>
+                            Live demo
+                        </ButtonDemo>
+                    </Link>
+                )}
+                {linkGit && (
+                    <Link href={linkGit} target="_blank" rel="noopener noreferrer">
+                        <ButtonView>
+                            <GitIcon/>
+                            GitHub
+                        </ButtonView>
+                    </Link>
+                )}
+                {linkFrontend && (
+                    <Link href={linkFrontend} target="_blank" rel="noopener noreferrer">
+                        <ButtonView>
+                            <GitIcon/>
+                            Frontend
+                        </ButtonView>
+                    </Link>
+                )}
+                {linkBackend && (
+                    <Link href={linkBackend} target="_blank" rel="noopener noreferrer">
+                        <ButtonView>
+                            <GitIcon/>
+                            Backend
+                        </ButtonView>
+                    </Link>
+                )}
             </Body>
         </Wrapper>
     );
